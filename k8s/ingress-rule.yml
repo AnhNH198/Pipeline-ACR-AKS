@@ -2,20 +2,21 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: helloworld-rules
+  name: ingress-rules
+  namespace: dev
 spec:
   rules:
-  - host: helloworld-v1.test.com
+  - host: dev-v1.test.com
     http:
       paths:
       - path: /
         backend:
-          serviceName: helloworld-v1
+          serviceName: app-v1
           servicePort: 80
-  - host: helloworld-v2.test.com
+  - host: dev-latest.test.com
     http:
       paths:
       - path: /
         backend:
-          serviceName: helloworld-v2
+          serviceName: app-latest
           servicePort: 80
