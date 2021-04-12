@@ -4,7 +4,7 @@ metadata:
   name: helloworld-deployment
   namespace: dev
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: helloworld-v1
@@ -15,14 +15,7 @@ spec:
     spec:
       containers:
       - name: k8s-demo
-        resources:
-          requests:
-            cpu: 200m
-            memory: 0.5Gi
-          limits:
-            cpu: 400m
-            memory: 1Gi
-        image: __ACR__/node-app:101
+        image: __ACR__/node-app:1
         command: ["node", "index.js"]
         ports:
         - name: nodejs-port
@@ -42,4 +35,3 @@ spec:
               secretKeyRef:
                 name: database-secrets
                 key: database
-      serviceAccountName: acrpull

@@ -4,7 +4,7 @@ metadata:
   name: dev-deployment
   namespace: dev
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: helloworld-latest
@@ -42,4 +42,3 @@ spec:
               secretKeyRef:
                 name: database-secrets
                 key: database
-      serviceAccountName: acrpull
