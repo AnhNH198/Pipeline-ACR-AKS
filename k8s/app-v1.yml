@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: k8s-demo
-        image: __ACR__/node-app:1
+        image: __ACR__/node-app:1.0.0
         command: ["node", "index.js"]
         ports:
         - name: nodejs-port
