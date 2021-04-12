@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-deployment
+  namespace: dev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: helloworld-v1
+  template:
+    metadata:
+      labels:
+        app: helloworld-v1
+    spec:
+      containers:
+      - name: k8s-demo
+        resources:
+          requests:
+            cpu: 200m
+            memory: 0.5Gi
+          limits:
+            cpu: 400m
+            memory: 1Gi
+        image: boploi/node-app:1.0.0
+        command: ["node", "index.js"]
+        ports:
+        - name: nodejs-port
+          containerPort: 3000
+        env:
+          - name: MYSQL_HOST
+            value: database-service # using service discovery, pod will regconize this service(kubectl get services to see more)
+          - name: MYSQL_USER
+            value: root
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: database-secrets
+                key: rootPassword
+          - name: MYSQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: database-secrets
+                key: database

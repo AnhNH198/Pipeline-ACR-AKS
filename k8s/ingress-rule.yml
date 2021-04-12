@@ -1,0 +1,24 @@
+# An Ingress with 2 hosts and 3 endpoints
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-rules
+  namespace: dev
+spec:
+  rules:
+  -  host: dev-v1.api.com
+     http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            serviceName: app-v1-svc
+            servicePort: 80
+  - host: dev.api.com
+    http:
+     paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            serviceName: app-latest-svc
+            servicePort: 80

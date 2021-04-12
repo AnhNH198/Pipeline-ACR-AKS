@@ -1,0 +1,28 @@
+# An Ingress with 2 hosts and 3 endpoints
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-rules
+  namespace: dev
+spec:
+  rules:
+  - host: dev-v1.api.com
+    http:
+     paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: app-v1-svc
+            port:
+              number: 80
+  - host: dev.api.com
+    http:
+     paths:  
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: app-latest-svc
+            port:
+              number: 80
