@@ -22,7 +22,7 @@ spec:
           limits:
             cpu: 400m
             memory: 1Gi
-        image: boploi/node-app:latest
+        image: boploi/node-app:1.0.0
         command: ["node", "index.js"]
         ports:
         - name: nodejs-port
@@ -35,10 +35,10 @@ spec:
           - name: MYSQL_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: helloworld-secrets
+                name: database-secrets
                 key: rootPassword
           - name: MYSQL_DATABASE
             valueFrom:
               secretKeyRef:
-                name: helloworld-secrets
+                name: database-secrets
                 key: database

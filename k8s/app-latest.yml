@@ -35,10 +35,10 @@ spec:
           - name: MYSQL_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: helloworld-secrets
+                name: database-secrets
                 key: rootPassword
           - name: MYSQL_DATABASE
             valueFrom:
               secretKeyRef:
-                name: helloworld-secrets
+                name: database-secrets
                 key: database

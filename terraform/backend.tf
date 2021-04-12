@@ -3,6 +3,6 @@ terraform {
     resource_group_name = "anhnh-docker-demo"
     storage_account_name = "anhnhterrastorage912"
     container_name = "terraform"
-    key = "kubenes.tfstate"
+    key = "devk8s.tfstate"
   }
 }
