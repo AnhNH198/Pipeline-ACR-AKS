@@ -15,14 +15,7 @@ spec:
     spec:
       containers:
       - name: k8s-demo
-        resources:
-          requests:
-            cpu: 200m
-            memory: 0.5Gi
-          limits:
-            cpu: 400m
-            memory: 1Gi
-        image: boploi/node-app:1.0.0
+        image: __ACR__/node-app:1.0.0
         command: ["node", "index.js"]
         ports:
         - name: nodejs-port
