@@ -22,7 +22,7 @@ spec:
           limits:
             cpu: 400m
             memory: 1Gi
-        image: boploi/node-app:latest
+        image: __ACR__/node-app:latest
         command: ["node", "index.js"]
         ports:
         - name: nodejs-port
