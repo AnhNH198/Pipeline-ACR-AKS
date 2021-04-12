@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
   // create table if not exist
   con.query('INSERT INTO visits (ts) values (?)', Date.now(),function(err, dbRes) {
     if(err) throw err;
-    res.send('Hello World! This is the Pod Version 1! You are visitor number '+dbRes.insertId);
+    res.send('Hello World! This is the Pod Version 111! You are visitor number '+dbRes.insertId);
   });
 });
 
