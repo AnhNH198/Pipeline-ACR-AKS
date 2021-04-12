@@ -22,7 +22,7 @@ spec:
           limits:
             cpu: 400m
             memory: 1Gi
-        image: __ACR__/node-app:latest
+        image: __ACR__/node-app:111
         command: ["node", "index.js"]
         ports:
         - name: nodejs-port
